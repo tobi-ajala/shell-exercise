@@ -7,6 +7,7 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-/*highcharts-background {
-  text-align: center;
-}*/
+
+.highcharts-container {
+  margin: 30px auto 0 auto;
+}

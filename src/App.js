@@ -8,9 +8,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="container">
-          //<img src={logo} className="App-logo" alt="logo" />
-        </div>
       </div>
     );
   }

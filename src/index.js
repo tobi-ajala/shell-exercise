@@ -1,29 +1,20 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-// import App from './App';
-// import registerServiceWorker from './registerServiceWorker';
-//
-// import 'bootstrap/dist/css/bootstrap.css';
-// import 'bootstrap/dist/css/bootstrap-theme.css';
-//
-// ReactDOM.render(<App />, document.getElementById('root'));
-// registerServiceWorker();
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './Header';
+import './index.css';
+import App from './App';
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap-theme.css';
+import registerServiceWorker from './registerServiceWorker';
 
 import ReactHighcharts from 'react-highcharts';
 
 const config = {
   chart: {
-    //renderTo: 'container',
+    renderTo: 'root',
     type: 'pie',
-    width: 800,
-    borderColor: '#EBBA95',
+    width: 700, // Width of entire highcharts embed
     panning: true, // Zooming ability for mibile devices
-    borderWidth: 2,
     events: {
       load: function(event) {
         var chart = this,
@@ -44,9 +35,13 @@ const config = {
           },
         });
         // Adding 'transaction' label - labels below don't support images/icons
-        this.renderer.label("<div class='transactions' style='fontSize:20px !important;'><img style='width:25px; height:25px; position:relative; top:7px;' src='https://github.com/tobi-ajala/shell-exercise/blob/master/icons/card.png?raw=true'/> &nbsp Transactions</div>", 200, 130, null, null, null, true).add(); //120, 130
+        this.renderer.label("<div class='transactions' style=''><img style='width:25px; height:25px; position:relative; top:7px;' src='https://github.com/tobi-ajala/shell-exercise/blob/master/icons/card.png?raw=true'/> &nbsp; Transactions</div>", 150, 130, null, null, null, true).add(); //120, 130
         // Adding date label
-        this.renderer.label("<div class='transactions'>11 Sept 2017 - 11 Oct 2017</div>", 180, 225, null, null, null, true).add();
+        this.renderer.label("<div class='date'>11 Sept 2017 - 11 Oct 2017</div>", 130, 225, null, null, null, true).add();
+        // Adding time period label (static)
+        this.renderer.label("<div class='time' style='font-weight:bold;'>TIME PERIOD</div>", 480, 20, null, null, null, true).add();
+        // Adding days label (static)
+        this.renderer.label("<div class='last' style='border-bottom:1px solid #DCDCDC; padding-bottom:5px;'>last 30 days &nbsp;<img style='width:10px; height:10px; position:relative; ' src='https://github.com/tobi-ajala/shell-exercise/blob/master/icons/arrow.png?raw=true'/></div>", 590, 20, null, null, null, true).add();
       }
     }
   },
@@ -81,7 +76,6 @@ const config = {
   },
   plotOptions: {
     pie: {
-      //center: [500, 170], // Positioning the donut chart
       shadow: false
     }
   },

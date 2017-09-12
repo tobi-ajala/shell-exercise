@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import Header from './Header';
 import './index.css';
 import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+import ReactHighcharts from 'react-highcharts';
+var Highcharts = require('highcharts'); // Load Highcharts
+require('highcharts/modules/funnel')(Highcharts); // Load a module
 // import 'bootstrap/dist/css/bootstrap.css';
 // import 'bootstrap/dist/css/bootstrap-theme.css';
-import registerServiceWorker from './registerServiceWorker';
-
-import ReactHighcharts from 'react-highcharts';
 
 const config = {
   chart: {
